@@ -16,10 +16,9 @@ const Form = ({ onSuccess, onError }) => {
       try {
         await mockContactApi();
         setSending(false);
-        alert('Votre message a bien été envoyé')
+        onSuccess();
       } catch (err) {
         setSending(false);
-        alert("Votre message n'a pas pu être envoyé, réessayez plus tard")
         onError(err);
       }
     },
