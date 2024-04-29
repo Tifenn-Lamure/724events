@@ -22,6 +22,7 @@ describe("When Events is created", () => {
         })
       );
       await screen.findByText("En cours");
+      await new Promise((r) => setTimeout(r, 3000));
       await screen.findByText("Envoyer");
       expect(onSuccess).toHaveBeenCalled();
     });
