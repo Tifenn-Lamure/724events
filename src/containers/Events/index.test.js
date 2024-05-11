@@ -59,14 +59,14 @@ describe("When Events is created", () => {
     });
   });
   describe("and we select a category", () => {
-    it.only("an filtered list is displayed", async () => {
+    it.only("a filtered list is displayed", async () => {
       api.loadData = jest.fn().mockReturnValue(data);
       render(
         <DataProvider>
           <Events />
         </DataProvider>
       );
-      await screen.findByText("Conférence #productCON");
+      await screen.findByText("Forum #productCON");
       fireEvent(
         await screen.findByTestId("collapse-button-testid"),
         new MouseEvent("click", {
@@ -83,7 +83,7 @@ describe("When Events is created", () => {
       );
 
       await screen.findByText("Conférence #productCON");
-      expect(screen.queryByText("Conférence #productCON")).toBeInTheDocument();
+      expect(screen.queryByText("Forum #productCON")).not.toBeInTheDocument();
     });
   });
 
